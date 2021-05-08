@@ -7,7 +7,6 @@ depth = client.get_order_book(symbol='DOGEUSDT')
 ticker = 'DOGEUSDT'
 minimum_move = 0.01
 allocation_long = 100 # % of account value to yeet into long
-#allocation_short = 100 # % of account value to yeet into short
 last_price = 0
 streak = 0
 while True:
@@ -32,7 +31,6 @@ while True:
         current_price = functions.get_midpoint(ticker)
         order_size_long = math.floor((account_value * (allocation_long /100)) / current_price)
         order_size_usdt = (order_size_long * current_price)
-        #order_size_short = math.floor((account_value * (allocation_short /100)) / current_price)
         print("The current position is " + str(position['position size']))
 
         if position['position size'] == 0:
