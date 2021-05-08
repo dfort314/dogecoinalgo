@@ -34,7 +34,7 @@ while True:
         print("The current position is " + str(position['position size']))
 
         if position['position size'] == 0:
-            if streak < -2 and order_size_usdt >= 5:
+            if streak < -3 and order_size_usdt >= 5:
                 client.futures_create_order(
                     symbol=ticker,
                     side='BUY',
@@ -43,7 +43,7 @@ while True:
                 )
                 print("submitted DOGEUSDT BUY order of " + str(order_size_long))
 
-            elif streak < -2 and order_size_usdt < 5:
+            elif streak < -3 and order_size_usdt < 5:
                 print("Could not submit buy the minimum order needs to be at least 5usdt nerd")
 
             else:
@@ -51,7 +51,7 @@ while True:
 
         else:
             if position['position size'] > 0:
-                if streak >= -2:
+                if streak >= -3:
                     client.futures_create_order(
                         symbol=ticker,
                         side='SELL',
